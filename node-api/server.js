@@ -17,7 +17,11 @@ app.use(cors());
 app.use(ExpressAPILogMiddleware(logger, { request: true }));
 
 app.get("/", (req, res) => {
-  res.status(200).send("hello world");
+  const response = { value: 0, action: "modify server.js and save!" };
+
+  res.setHeader("Content-Type", "application/json");
+
+  res.status(200).json(response);
 });
 
 app.listen(config.port, config.host, e => {
