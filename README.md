@@ -29,18 +29,18 @@ Backend
 ## Notes
 
 - Dockerfile.dev is used instead of 'Dockerfile' to highlight that this build is optimized for development, you can another Dockerfil optimized for building test/production images
-- The React front end was created with create-react-app with one caveat, changing react-scripts from 3.4.1 down to 3.4.0 to avoid a [docker issue](https://github.com/facebook/create-react-app/issues/8688) at the time of creating this repo
+- The React front end was created with create-react-app on Oct 2023 (Node 18.15 and react 18.2 .. your mileage will vary adjust as you need)
 
 - The base images are not Alpine nor slim to give the developer stronger tooling inside the docker containers.
 
-* If you want to add a new dependency you can use the included _npm_install.sh_.
+* If you want to add a new dependency you can use the included _npm_install.sh script
 
 * first paramter will be either _express-container_ or _react-container_
 
 ```bash
 # this is the equivelant of running npm install in the node.js express container
-./npminstall.sh express-container
+./npm_install.sh express-container
 
 # this is the equivelant of installing faker.js and saving it to the package.json of the react container
-./npminstall.sh react-container faker
+./npm_install.sh react-container faker
 ```
